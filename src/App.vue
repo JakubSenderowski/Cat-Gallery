@@ -2,20 +2,25 @@
 	<h1>Galeria Kotów 🐱</h1>
 	<CatGallery :cats="cats" @cat-clicked="handleCatClick" />
 	<button @click="fetchCats" class="refresh-button">Odśwież kotki 🐾🔄️</button>
+	<CatModal :selectedCat="selectedCat" :isModalOpen="isModalOpen" @close="closeModal" />
 </template>
 
 <script>
 import CatService from './services/CatService.js';
 import CatGallery from './components/CatGallery.vue';
+import CatModal from './components/CatModal.vue';
 export default {
 	name: 'App',
 	components: {
 		CatGallery,
+		CatModal,
 	},
 	data() {
 		return {
 			cats: [],
 			isLoading: true,
+			selectedCat: null,
+			isModalOpen: false,
 		};
 	},
 	methods: {
@@ -29,7 +34,12 @@ export default {
 			}
 		},
 		handleCatClick(cat) {
-			console.log('Test kliknięcia', cat);
+			this.selectedCat = cat;
+			this.isModalOpen = true;
+		},
+		closeModal() {
+			this.isModalOpen = false;
+			this.selectedCat = null;
 		},
 	},
 	mounted() {
