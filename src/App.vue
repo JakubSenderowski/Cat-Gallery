@@ -36,6 +36,7 @@ export default {
 				this.isLoading = false;
 			} catch (error) {
 				console.error('Meow, Wystąpił błąd', error);
+				this.isLoading = false;
 			}
 		},
 		handleCatClick(cat) {
