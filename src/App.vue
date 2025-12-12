@@ -112,4 +112,19 @@ h1 {
 		transform: rotate(360deg);
 	}
 }
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 2rem;
+	}
+}
+@media (max-width: 480px) {
+	h1 {
+		font-size: 1.5rem;
+	}
+	.refresh-button {
+		font-size: 1rem;
+		padding: 12px 30px;
+	}
+}
 </style>
