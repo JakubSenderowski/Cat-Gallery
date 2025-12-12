@@ -1,6 +1,10 @@
 <template>
 	<h1>Galeria Kotów 🐱</h1>
-	<CatGallery :cats="cats" @cat-clicked="handleCatClick" />
+	<div v-if="isLoading" class="loader-container">
+		<div class="spinner"></div>
+		<p>Ładowanie kotków...🐾</p>
+	</div>
+	<CatGallery v-if="!isLoading" :cats="cats" @cat-clicked="handleCatClick" />
 	<button @click="fetchCats" class="refresh-button">Odśwież kotki 🐾🔄️</button>
 	<CatModal :selectedCat="selectedCat" :isModalOpen="isModalOpen" @close="closeModal" />
 </template>
@@ -79,5 +83,31 @@ h1 {
 	transform: translateY(-3px);
 	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 	background: #f0f0f0;
+}
+
+.loader-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	margin: 40px 0;
+}
+.loader-container p {
+	color: white;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.spinner {
+	width: 60px;
+	height: 60px;
+	border: 6px solid rgba(255, 255, 255, 0.3);
+	border-top-color: white;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
 }
 </style>
