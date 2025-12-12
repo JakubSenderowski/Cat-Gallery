@@ -29,6 +29,7 @@ export default {
 	},
 	methods: {
 		async fetchCats() {
+			this.isLoading = true;
 			try {
 				const data = await CatService.fetchCats();
 				this.cats = data;
