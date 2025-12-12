@@ -1,6 +1,16 @@
-import './assets/main.css'
+import './assets/main.css';
+import CatService from './services/CatService.js';
 
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 
-createApp(App).mount('#app')
+//Test
+
+CatService.fetchCats()
+	.then((cats) => {
+		console.log('Pobrane koty 🐈: ', cats);
+	})
+	.catch((error) => {
+		console.error('Błąd', error);
+	});
+createApp(App).mount('#app');
