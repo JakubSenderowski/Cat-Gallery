@@ -35,6 +35,9 @@ export default {
 	padding: 20px;
 	max-width: 1200px;
 	margin: 0;
+	background: white;
+	border-radius: 20px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 .cat-item {
 	aspect-ratio: 1/1;

@@ -1,6 +1,7 @@
 <template>
 	<h1>Galeria Kotów 🐱</h1>
 	<CatGallery :cats="cats" @cat-clicked="handleCatClick" />
+	<button @click="fetchCats" class="refresh-button">Odśwież kotki 🐾🔄️</button>
 </template>
 
 <script>
@@ -50,5 +51,23 @@ h1 {
 	margin-bottom: 40px;
 	text-align: center;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.refresh-button {
+	margin-top: 30px;
+	padding: 15px 40px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #667eea;
+	background: white;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	transition: all 0.3 ease;
+}
+.refresh-button:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+	background: #f0f0f0;
 }
 </style>
